@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <!--    <script src="script.js"></script> -->
+</head>
+
+<body>
+    <h1>!</h1>
+</body>
+
+<script language="JavaScript">
+    var a = '329568934658432659586';
+    var b = '58379426534596';
+    var result = '19240045408977038918943543720037256';
+    var transfer = 0;
+    var multiply = 0;
+    var tosum = 0;
+    var sum = 0;
+    a = '789';
+    b = '56';
+
+
+    /*меньшее число, от младшего разряда к старшему*/
+    for (var j = b.length - 1; j >= 0; j = j - 1) {
+        document.writeln('j=' + j);
+        document.writeln('b[j]=' + b[j]);
+        document.writeln('<br>');
+        document.writeln('------<br>');
+        /*большее число, от младшего разряда к старшему*/
+        for (var i = a.length - 1; i >= 0; i = i - 1) {
+            document.writeln('i=' + i);
+            document.writeln('a[i]=' + a[i]);
+            document.writeln('<br>');
+            document.writeln('------<br>');
+            //document.writeln('parse=' + parseInt(b[j]));
+            /*перемножили*/
+            multiply = parseInt(b[j]) * parseInt(a[i]);
+            document.writeln('multiply=' + multiply + '<br>');
+            /*если результат умножения больше 9 - разделили на единицы и десятки*/
+            if (multiply > 9) {
+                transfer = parseInt(String(multiply)[0]); //это перенос в старший разряд
+                tosum = parseInt(String(multiply)[1]); //это младший разряд
+                document.writeln('tosum=' + tosum + '<br>');
+                document.writeln('transfer=' + transfer + '<br>');
+            }
+            sum = sum + tosum;
+            if (transfer != 0 && i != a.length - 1) {
+                sum = sum + transfer;
+                transfer = 0;
+            }
+            document.writeln('sum=' + sum + '<br>');
+        }
+        document.writeln('**************<br>');
+    }
+    //check('())(', [['(', ')']]) // -> false
+
+    //document.write((a * b).toString());
+</script>
+
+</html>
